@@ -78,7 +78,7 @@ export const Footer = () => {
                     <div class="col-lg-4  col-md-6 order-lg-12 text-md-right align-self-center">
                         <ul class="social-media mt-md-0 mt-3">
                             <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                            {/* <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li> */}
                             <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
                             <li><a class="youtube" href="#"><i class="fa fa-youtube"></i></a></li>
                             <li><a class="pinterest" href="#"><i class="fa fa-pinterest"></i></a></li>
