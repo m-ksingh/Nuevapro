@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
-
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
 import f1 from "../assets/img/intro/4.png"
 import f2 from "../assets/img/intro/6.png"
 import f3 from "../assets/img/intro/5.png"
@@ -25,7 +26,7 @@ const LandingPage = () => {
     const [showContentcloud, setShowContentcloud] = useState(false);
     const [showContentdata, setShowContentdata] = useState(false);
     const [showContentdevops, setShowContentdevops] = useState(false);
-
+    const allowedCountries = ['US'];
     const toggleContent = () => {
       setShowContent(!showContent);
     };
@@ -38,9 +39,10 @@ const LandingPage = () => {
       const toggleContentdevops = () => {
         setShowContentdevops(!showContentdevops);
       };
+      const [value, setValue] = useState()
     const [formData, setFormData] = React.useState({
         fullName: '',
-        phoneNumber: '',
+        
         emailAddress: '',
         message: '',
         subscribe: false,
@@ -60,7 +62,7 @@ const LandingPage = () => {
         e.preventDefault();
     
         // Simple form validation
-        if (!formData.fullName || !formData.phoneNumber || !formData.emailAddress || !formData.message) {
+        if (!formData.fullName ||!value || !formData.emailAddress || !formData.message) {
           setMessage('All fields are required.');
           return;
         }
@@ -79,6 +81,7 @@ const LandingPage = () => {
         message: '',
         subscribe: false,
       });
+      setValue()
       setTimeout(() => {
         setMessage('');
       }, 2000);
@@ -97,7 +100,7 @@ var sectionStyle = {
                 <div class=" align-self-center">
                     <div class="banner-inner style-white text-center text-lg-left">
                         <h2 class="b-animate-1 sub-title"> Empowering Veterans For Success</h2>
-                        <h1 class="b-animate-2 title">FREE Training in-demand IT Skills</h1>
+                        <h1 class="b-animate-2 title">FREE Training in in-demand IT Skills</h1>
                         <a class="btn btn-primary b-animate-3 mr-sm-3 mr-2" href="#contact" style={{background:"rgb(20,20,132)"}}>Learn More</a>
                        
                         {/* <a class="btn btn-border-white b-animate-3" href="blog.html">Read More</a> */}
@@ -816,8 +819,15 @@ the planning of test and deployment and transition code from development to prod
                             </div>
                             <div class="col-md-6">
                                 <div class="single-input-inner">
-                                    <input type="text" placeholder="Phone Number" name='phoneNumber' value={formData.phoneNumber}
-              onChange={handleChange}/>
+                                    {/* <input type="text" placeholder="Phone Number" name='phoneNumber' value={formData.phoneNumber}
+              onChange={handleChange}/> */}
+              <PhoneInput
+             countries={allowedCountries}
+               defaultCountry="US"
+      placeholder="Enter phone number"
+      value={value}
+      onChange={setValue}/>
+        
                                 </div>
                             </div>
                             <div class="col-12">
@@ -844,7 +854,7 @@ the planning of test and deployment and transition code from development to prod
                                 <div class="single-input-inner style-checkbox">
                                     <input type="checkbox"  value={formData.subscribe}
               onChange={handleChange}/>
-                                    Also subscribe us
+                                   Subscribe to our Newsletter
                                 </div>
                             </div>
            
@@ -884,7 +894,7 @@ the planning of test and deployment and transition code from development to prod
                                     <div class="media-body align-self-center">
                                         <h5>Our Email</h5>
                                         
-                                        <p>info@nuevapro.net</p>
+                                        <p><a href="mailto:info@nuevapro.net">info@nuevapro.net</a></p>
                                     </div>
                                 </div>
                             </li>

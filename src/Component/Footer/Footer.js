@@ -85,7 +85,7 @@ export const Footer = () => {
                         </ul>
                     </div>
                     <div class="col-lg-4 order-lg-8 text-lg-center align-self-center mt-lg-0 mt-3">
-                        <p>copyright 2023 by Nuevapro</p>
+                        <p>&copy; 2023 by Nuevapro LLC</p>
                     </div>
                 </div>
             </div>
